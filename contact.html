@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+
+    .contact_us_2 {
+      position: relative;
+      padding: 50px 20px;
+    }
+
+    .blueBG {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      z-index: -1;
+    }
+
+    .contact_us_2 .responsive-container-block {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .contact_us_2 .left-side, .contact_us_2 .right-side {
+      flex: 1 1 50%;
+      padding: 40px;
+    }
+
+    .contact_us_2 .left-side h1 {
+      color: #2575fc;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .contact_us_2 .left-side p {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .contact_us_2 .form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact_us_2 .form-group input,
+    .contact_us_2 .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact_us_2 .form-group input:focus,
+    .contact_us_2 .form-group textarea:focus {
+      border-color: #2575fc;
+      outline: none;
+    }
+
+    .contact_us_2 .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact_us_2 .submit-btn {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact_us_2 .submit-btn:hover {
+      background: #1a5fdc;
+    }
+
+    @media (max-width: 768px) {
+      .contact_us_2 .left-side, .contact_us_2 .right-side {
+        flex: 1 1 100%;
+        padding: 20px;
+      }
+
+      .contact_us_2 .left-side h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+
+      .contact_us_2 .left-side p {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact_us_2">
+    <div class="blueBG"></div>
+    <div class="responsive-container-block">
+      <div class="left-side">
+        <h1>Contact Us</h1>
+        <p>Have any questions or feedback? We'd love to hear from you! Fill out the form and our team will get back to you shortly.</p>
+      </div>
+      <div class="right-side">
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Full Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number" />
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      alert("Thank you, " + name + "! Your message has been sent successfully.");
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+</body>
+</html>
