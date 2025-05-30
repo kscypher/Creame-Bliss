@@ -32,13 +32,13 @@ whisked-away/
 1. **Clone this repository**:
 
    ```bash
-   git clone https://github.com/yourusername/whisked-away.git
+   git clone https://github.com/yourusername/creame-bliss.git
    ```
 
 2. **Navigate to the project folder**:
 
    ```bash
-   cd whisked-away
+   cd creame-bliss
    ```
 
 3. **Open ****`index.html`**** in your browser**:
