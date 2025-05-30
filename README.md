@@ -1,6 +1,6 @@
-# 🍚 Whisked Away – Fresh Bakes Daily
+# 🍚 Creame & Bliss – Fresh Bakes Daily
 
-Welcome to **Whisked Away**, a beautifully designed bakery website that showcases delightful cookies, cakes, and biscuits. This responsive and modern web interface is built using HTML, CSS, and JavaScript.
+Welcome to **Creame & Bliss**, a beautifully designed bakery website that showcases delightful cookies, cakes, and biscuits. This responsive and modern web interface is built using HTML, CSS, and JavaScript.
 
 ## 🌟 Features
 
