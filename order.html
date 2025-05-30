@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order - CREAME & BLISS...</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff9f4;
+      color: #4b2e2e;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Brush Script MT', cursive;
+      font-style: italic;
+      color: #5a2a83;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      border-radius: 12px;
+    }
+
+    .section h2 {
+      color: #7b3f00;
+      border-bottom: 2px solid #c2a678;
+      padding-bottom: 5px;
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-name {
+      flex: 1;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    button.qty-btn {
+      padding: 5px 10px;
+      border: none;
+      background-color: #d7a37c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .box {
+      background: #fff3e6;
+      padding: 10px;
+      border: 2px dashed #c97c41;
+      min-height: 80px;
+      margin-top: 10px;
+    }
+
+    button#done-btn {
+      padding: 10px 20px;
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .token {
+      font-size: 1.2rem;
+      color: green;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav-links">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+  <h1>Place Your Order</h1>
+
+  <div class="section">
+    <h2>Cakes</h2>
+    <div class="item-list">
+      <div class="item">
+        <span class="item-name">Chocolate Cake</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Chocolate Cake', -1)">−</button>
+          <span id="Chocolate Cake">0</span>
+          <button class="qty-btn" onclick="adjustQty('Chocolate Cake', 1)">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-name">Vanilla Cake</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Vanilla Cake', -1)">−</button>
+          <span id="Vanilla Cake">0</span>
+          <button class="qty-btn" onclick="adjustQty('Vanilla Cake', 1)">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-name">Red Velvet</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Red Velvet', -1)">−</button>
+          <span id="Red Velvet">0</span>
+          <button class="qty-btn" onclick="adjustQty('Red Velvet', 1)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cookies</h2>
+    <div class="item-list">
+      <div class="item">
+        <span class="item-name">Choco Chip Cookie</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Choco Chip Cookie', -1)">−</button>
+          <span id="Choco Chip Cookie">0</span>
+          <button class="qty-btn" onclick="adjustQty('Choco Chip Cookie', 1)">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-name">Oatmeal Cookie</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Oatmeal Cookie', -1)">−</button>
+          <span id="Oatmeal Cookie">0</span>
+          <button class="qty-btn" onclick="adjustQty('Oatmeal Cookie', 1)">+</button>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-name">Peanut Butter Cookie</span>
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="adjustQty('Peanut Butter Cookie', -1)">−</button>
+          <span id="Peanut Butter Cookie">0</span>
+          <button class="qty-btn" onclick="adjustQty('Peanut Butter Cookie', 1)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Your Box</h2>
+    <div class="box" id="orderBox">No items added yet.</div>
+    <button id="done-btn" onclick="generateToken()">Done</button>
+    <div class="token" id="tokenDisplay"></div>
+  </div>
+
+  <script>
+    const order = {};
+
+    function adjustQty(item, change) {
+      if (!order[item]) order[item] = 0;
+      order[item] += change;
+      if (order[item] < 0) order[item] = 0;
+      document.getElementById(item).innerText = order[item];
+      updateBox();
+    }
+
+    function updateBox() {
+      const box = document.getElementById("orderBox");
+      const items = Object.entries(order).filter(([_, qty]) => qty > 0);
+      if (items.length === 0) {
+        box.innerHTML = "No items added yet.";
+      } else {
+        box.innerHTML = items.map(([item, qty]) => `• ${item} x ${qty}`).join("<br>");
+      }
+    }
+
+    function generateToken() {
+      const items = Object.entries(order).filter(([_, qty]) => qty > 0);
+      if (items.length === 0) {
+        alert("Please select at least one item.");
+        return;
+      }
+      const token = "CB" + Math.floor(Math.random() * 90000 + 10000);
+      const summary = items.map(([item, qty]) => `${item} x ${qty}`).join(", ");
+      const message = `New Order:\nItems: ${summary}\nToken: ${token}`;
+
+      document.getElementById("tokenDisplay").innerHTML = `Thank you! Your token number is <strong>${token}</strong>. We will contact you shortly.`;
+      console.log("Order Message Sent to Bakery:\n" + message);
+    }
+  </script>
+</body>
+</html>
