@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - CREAME & BLISS...</title>
+  <link rel="stylesheet" href="home.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdf6f0;
+      margin: 0;
+      padding: 0;
+      color: #4b2e2e;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      font-style: italic;
+      font-family: 'Brush Script MT', cursive;
+      color: #5a2a83;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .menu-section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #7b3f00;
+      border-bottom: 2px solid #c2a678;
+      padding-bottom: 5px;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .item-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      color: #5e5e5e;
+    }
+  </style>
+</head>
+<body>
+  <header>Our Menu - CREAME & BLISS...</header>
+
+  <section class="menu-section">
+    <h2 class="section-title">Cakes</h2>
+    <div class="items">
+      <div class="item">
+        <img src="images/chocolate_cake.jpg" alt="Chocolate Cake" />
+        <div class="item-name">Chocolate Fudge Cake</div>
+        <div class="item-desc">Rich and moist chocolate cake layered with ganache.</div>
+      </div>
+      <div class="item">
+        <img src="images/vanilla_cake.jpg" alt="Vanilla Cake" />
+        <div class="item-name">Classic Vanilla Cake</div>
+        <div class="item-desc">Fluffy vanilla sponge with buttercream frosting.</div>
+      </div>
+      <div class="item">
+        <img src="images/red_velvet.jpg" alt="Red Velvet Cake" />
+        <div class="item-name">Red Velvet</div>
+        <div class="item-desc">Creamy, dreamy red velvet delight with cream cheese frosting.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section">
+    <h2 class="section-title">Cookies</h2>
+    <div class="items">
+      <div class="item">
+        <img src="images/chocochip_cookie.jpg" alt="Choco Chip Cookie" />
+        <div class="item-name">Choco Chip Cookie</div>
+        <div class="item-desc">Chewy cookies packed with gooey chocolate chips.</div>
+      </div>
+      <div class="item">
+        <img src="images/oatmeal_cookie.jpg" alt="Oatmeal Cookie" />
+        <div class="item-name">Oatmeal Raisin</div>
+        <div class="item-desc">Wholesome oats with a sweet raisin twist.</div>
+      </div>
+      <div class="item">
+        <img src="images/peanut_butter_cookie.jpg" alt="Peanut Butter Cookie" />
+        <div class="item-name">Peanut Butter</div>
+        <div class="item-desc">Buttery, nutty, melt-in-your-mouth goodness.</div>
+      </div>
+    </div>
+    <div>
+    <p>Once you have viewed the menu, Please click on Order to go to Order Page.</p>
+
+        <a href="order.html" class="cta-button">Orders</a>
+        </div>
+  </section>
+</body>
+</html>
